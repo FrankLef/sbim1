@@ -14,21 +14,9 @@ Changelog = "https://github.com/FrankLef/sbim1.git/releases"
 [tool.poetry.dependencies]
 # python changed to allow install of scipy
 python = "^3.10.6"
-requests = "^2.28.1"
 pandas = "^1.5.0"
 numpy = "^1.23.3"
 pyodbc = "^4.0.34"
-SQLAlchemy = "^2.0.0"
-sqlalchemy-utils = "^0.41.2"
-# used by sqlalchemy to connect to MS Access
-sqlalchemy-access = "^2.0.2"
-# used by sqlalchemy to connect to postgre
-psycopg2 = "^2.9.9"
-# Use pyarrow.feather instead of feather-format,
-# feather.format exists only fo backward compatibility.
-# pyarrow is better installed with `pip3 install pyarrow` in the local python,
-# don't install pyarrow with poetry add, plenty of error messages ensue.
-pyarrow = "^9.0.0"
 dynaconf = "^3.1.11"
 rich= "^12.5.1"
 typer = "^0.9.0"
