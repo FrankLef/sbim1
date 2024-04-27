@@ -9,15 +9,15 @@ from sqlalchemy.engine.base import Engine  # for type hint
 
 specs: dict[str, str] = {
     "path": r"C:/Users/Public/MyJob/DesjCap_cies/NSE/OlapNse_V02/db_NSE_V02.accdb",
-    "mode": 'Read',
-    "driver": '{Microsoft Access Driver (*.mdb, *.accdb)}'
+    "mode": "Read",
+    "driver": "{Microsoft Access Driver (*.mdb, *.accdb)}",
 }
 
 
 def get_engine(
-    path: str = specs['path'],
-    mode: str = specs['mode'],
-    driver: str = specs['driver'],
+    path: str = specs["path"],
+    mode: str = specs["mode"],
+    driver: str = specs["driver"],
 ) -> Engine:
     """Create SQLAlchemy engine for MS Access.
 

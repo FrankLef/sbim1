@@ -32,6 +32,8 @@ def test_acc_engine(db_path):
 
 def test_accs_err():
     with pytest.raises(FileNotFoundError):
-        extr.get_engine(path="WRONG",
-                        mode='Read',
-                        driver= '{Microsoft Access Driver (*.mdb, *.accdb)}')
+        extr.get_engine(
+            path="WRONG",
+            mode="Read",
+            driver="{Microsoft Access Driver (*.mdb, *.accdb)}",
+        )

@@ -1,4 +1,5 @@
 """The main entry point."""
+
 import logging
 from enum import Enum
 

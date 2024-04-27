@@ -1,4 +1,5 @@
 """Test the richmsg.py module."""
+
 import pytest
 
 import src.helpers.richmsg as richmsg
