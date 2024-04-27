@@ -33,7 +33,7 @@ class Clerk(sim.Component):
 #     CustomerGenerator()
 #     waitingline = sim.Queue("waitingline")
 #     waitingroom = sim.Store("waitingroom")
-#     clerks = [Clerk() for _ in range(3)]
+#     # clerks = [Clerk() for _ in range(3)]
 #     clerks = sim.Queue(name="clerks", fill=[Clerk() for _ in range(3)])
 #     env.run(till=50000)
 #     waitingline.print_statistics()
@@ -50,4 +50,4 @@ if __name__ == "__main__":
     clerks = sim.Queue(name="clerks", fill=[Clerk() for _ in range(3)])
     env.run(till=50000)
     waitingline.print_statistics()
-    # waitingline.print_info()
+    waitingline.print_info()
