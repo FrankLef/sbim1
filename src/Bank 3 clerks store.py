@@ -22,21 +22,32 @@ class Customer(sim.Component):
 
 class Clerk(sim.Component):
     def process(self):
-        while len(waitingline) == 0:
-            self.passivate()
-        self.customer = waitingline.pop()
-        self.hold(30)
-        self.customer.activate()
+        while True:
+            customer = self.from_store(waitingroom)
+            self.hold(30)
+            customer.activate()
+
+
+# def main():
+#     env = sim.Environment(trace=False)
+#     CustomerGenerator()
+#     waitingline = sim.Queue("waitingline")
+#     waitingroom = sim.Store("waitingroom")
+#     clerks = [Clerk() for _ in range(3)]
+#     clerks = sim.Queue(name="clerks", fill=[Clerk() for _ in range(3)])
+#     env.run(till=50000)
+#     waitingline.print_statistics()
+#     waitingline.print_info()
 
 
 if __name__ == "__main__":
-    env = sim.Environment(trace=True)
-    waitingline = sim.Queue("waitingline")
+    # main()
+    env = sim.Environment(trace=False)
     CustomerGenerator()
-    # clerk = Clerk()  # first exercise
+    waitingline = sim.Queue("waitingline")
+    waitingroom = sim.Store("waitingroom")
     clerks = [Clerk() for _ in range(3)]
     clerks = sim.Queue(name="clerks", fill=[Clerk() for _ in range(3)])
-    env.run(till=50)
-    # print()
+    env.run(till=50000)
     waitingline.print_statistics()
     # waitingline.print_info()
