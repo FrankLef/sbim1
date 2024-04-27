@@ -10,14 +10,9 @@ class CustomerGenerator(sim.Component):
 
 class Customer(sim.Component):
     def process(self):
-        self.enter(waitingline)
-        # if clerk.ispassive():
-        #     clerk.activate()
-        for clerk in clerks:
-            if clerk.ispassive():
-                clerk.activate()
-                break  # activate one clerk at a time only
-        self.passivate()
+        self.request(clerks)
+        self.hold(30)
+        self.release()  # not really required
 
 
 class Clerk(sim.Component):
@@ -46,8 +41,8 @@ if __name__ == "__main__":
     CustomerGenerator()
     waitingline = sim.Queue("waitingline")
     waitingroom = sim.Store("waitingroom")
-    clerks = [Clerk() for _ in range(3)]
     clerks = sim.Queue(name="clerks", fill=[Clerk() for _ in range(3)])
+    clerks = sim.Resource("clerks", capacity=3)
     env.run(till=50000)
-    waitingline.print_statistics()
-    waitingline.print_info()
+    clerks.print_statistics()
+    clerks.print_info()
