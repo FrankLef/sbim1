@@ -1,5 +1,5 @@
 import salabim as sim  # type: ignore
-
+# This is a test
 
 class CustomerGenerator(sim.Component):
     def process(self):
